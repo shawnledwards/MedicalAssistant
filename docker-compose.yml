@@ -1,0 +1,20 @@
+services:
+  medical-assistant:
+    build:
+      context: .
+      args:
+        # Set GPU=1 for RTX 3070 acceleration, 0 for CPU-only
+        GPU: "0"
+    ports:
+      - "7860:7860"
+    volumes:
+      # Mount large files as volumes — not baked into image
+      - ./data:/app/data
+      - ./models:/app/models
+    environment:
+      - PORT=7860
+      # GPU layers: 35 = full RTX 3070 offload, 0 = CPU only
+      - N_GPU_LAYERS=0
+      - MODEL_FILENAME=mistral-7b-instruct-v0.2.Q4_K_M.gguf
+      - MODEL_PATH=models/mistral-7b-instruct-v0.2.Q4_K_M.gguf
+    restart: unless-stopped

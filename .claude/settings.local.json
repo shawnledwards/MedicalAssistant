@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(nvidia-smi)",
+      "Bash(nvcc --version)",
+      "Bash(pip show *)",
+      "Bash(pip index *)",
+      "Bash(pip install *)",
+      "Bash(uvicorn api.main:app *)",
+      "Bash(curl -s -X POST http://localhost:7860/chat -H \"Content-Type: application/json\" -d '{\"question\": \"What are symptoms of appendicitis?\", \"persona\": \"faq\"}')",
+      "Bash(python3 -m json.tool)",
+      "Bash(python3 *)",
+      "Bash(conda run *)",
+      "Bash(curl -s http://localhost:7860/health)",
+      "Bash(nvidia-smi *)",
+      "Bash(awk '{print $1,$2,$3,$4}')",
+      "Bash(curl -s --max-time 5 http://localhost:7860/health)",
+      "Bash(curl -s --max-time 3 http://localhost:7860/health)",
+      "Bash(awk '{print $2,$3,$4,$11}')"
+    ]
+  }
+}

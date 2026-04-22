@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Medical Assistant RAG</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Medical Assistant <span class="rag-badge">RAG</span></h1>
+    <p class="subtitle">Retrieval-augmented medical Q&amp;A — Powered by Mistral-7B + Merck Manuals</p>
+  </header>
+
+  <main>
+    <!-- Persona Selector -->
+    <section class="persona-section">
+      <h2>Select your role</h2>
+      <div class="persona-cards">
+
+        <button class="persona-card active" data-persona="scientist" aria-pressed="true">
+          <span class="persona-icon">🔬</span>
+          <span class="persona-name">Research Scientist</span>
+          <span class="persona-desc">Technical depth, mechanisms of action, clinical evidence</span>
+        </button>
+
+        <button class="persona-card" data-persona="doctor" aria-pressed="false">
+          <span class="persona-icon">🩺</span>
+          <span class="persona-name">Physician</span>
+          <span class="persona-desc">Bedside-manner summaries, patient-care language</span>
+        </button>
+
+        <button class="persona-card" data-persona="faq" aria-pressed="false">
+          <span class="persona-icon">💬</span>
+          <span class="persona-name">Patient FAQ</span>
+          <span class="persona-desc">Plain-language bullet answers, no jargon</span>
+        </button>
+
+      </div>
+    </section>
+
+    <!-- Chat Interface -->
+    <section class="chat-section" id="chat-section">
+      <div class="chat-thread" id="chat-thread" role="log" aria-live="polite"></div>
+
+      <form class="chat-form" id="chat-form" autocomplete="off">
+        <textarea
+          id="question-input"
+          placeholder="Ask a medical question…"
+          rows="3"
+          maxlength="1000"
+          required
+        ></textarea>
+        <button type="submit" id="send-btn">Send</button>
+      </form>
+
+      <p class="hint">Press <kbd>Ctrl</kbd>+<kbd>Enter</kbd> to send &nbsp;|&nbsp; Persona: <strong id="active-persona-label">Research Scientist</strong></p>
+    </section>
+  </main>
+
+  <footer>
+    <small>
+      For educational &amp; research purposes only. Not a substitute for professional medical advice.
+      &nbsp;&bull;&nbsp; <a href="/health" target="_blank">/health</a>
+    </small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
