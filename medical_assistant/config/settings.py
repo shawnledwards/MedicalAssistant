@@ -13,6 +13,11 @@ class Settings(BaseSettings):
     n_ctx: int = 5000
     n_batch: int = 512
 
+    # LLM backend: "llama_cpp" (local) or "groq" (cloud, fast — use on HF Spaces)
+    llm_backend: str = "llama_cpp"
+    groq_api_key: str = ""
+    groq_model: str = "llama-3.3-70b-versatile"
+
     # Embeddings
     embedding_model: str = "thenlper/gte-large"
 
