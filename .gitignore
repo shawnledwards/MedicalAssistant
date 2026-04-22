@@ -23,8 +23,7 @@ env/
 models/*.gguf
 models/*.bin
 
-# Vector store — rebuilt on startup
-data/vectorstore/
+# Vector store — tracked via Git LFS (see .gitattributes)
 
 # Jupyter
 .ipynb_checkpoints/
