@@ -39,6 +39,14 @@ FROM final-${GPU} AS final
 WORKDIR /app
 COPY . .
 
+# Pre-build vector stores and cache embedding model into the image.
+# Runs at build time so the container starts with stores ready (no cold-start rebuild).
+RUN python -c "\
+from medical_assistant.config.settings import Settings; \
+from medical_assistant.core.vector_store import get_vector_store; \
+s = Settings(); \
+[get_vector_store(p, s) for p in ['scientist', 'doctor', 'faq']]"
+
 # HF Spaces requires port 7860; local docker-compose can override via PORT env
 EXPOSE 7860
 
