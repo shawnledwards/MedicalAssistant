@@ -7,6 +7,7 @@ FROM python:3.11-slim AS base
 
 # System deps for PDF parsing and (CPU) OpenBLAS
 RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
     cmake \
     libopenblas-dev \
     libgomp1 \
