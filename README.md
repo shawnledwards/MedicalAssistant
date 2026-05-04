@@ -11,6 +11,8 @@ pinned: false
 
 A Retrieval-Augmented Generation (RAG) system for medical question-answering, built with **Mistral-7B-Instruct**, **LangChain**, and **Chroma**. Supports three user personas with distinct response styles and LLM parameters.
 
+https://huggingface.co/spaces/Shawmamish/MedicAI 
+
 ## Personas
 
 | Persona | Style | Key Parameters |
